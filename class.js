@@ -6,8 +6,8 @@
 
 var is, extend, Class, create;
 
-is = require('is');
-extend = require('extend');
+is = require('aimee-is');
+extend = require('aimee-extend');
 
 Class = function(){
     this.name = 'aimee-class';
@@ -21,15 +21,18 @@ Class = function(){
  * @return {[Function]}        [返回子类]
  */
 create = function(Fn, obj){
-    var o = function(){};
+    var Aimee = function(){};
 
-    o.fn = o.prototype;
-    o.constructor = Class;
-    o.create = o.fn.create = create;
-    o.extend = o.fn.extend = extend;
+    Aimee.fn = Aimee.prototype;
+    Aimee.constructor = Class;
+    Aimee.create = Aimee.fn.create = create;
+    Aimee.extend = Aimee.fn.extend = extend;
+    Aimee.aimee = {
+        class: true
+    };
 
     // 继承父级原型链
-    o.fn.extend(this.prototype);
+    Aimee.fn.extend(this.prototype);
 
     // 检查是否存在需要继承的类
     if(is.plainObject(Fn)){
@@ -39,13 +42,13 @@ create = function(Fn, obj){
 
     // 继承指定类的原型链
     if(Fn){
-        o.fn.extend(Fn.prototype);
+        Aimee.fn.extend(Fn.prototype);
     };
 
     // 扩展子类
-    o.fn.extend(obj || {});
+    Aimee.fn.extend(obj || {});
 
-    return o;
+    return Aimee;
 }
 
 Class.create = create;
