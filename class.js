@@ -25,7 +25,7 @@ create = function(Fn, obj){
 
     Aimee.fn = Aimee.prototype;
     Aimee.constructor = Class;
-    Aimee.create = Aimee.fn.create = create;
+    Aimee.create = create;
     Aimee.extend = Aimee.fn.extend = extend;
     Aimee.aimee = {
         class: true

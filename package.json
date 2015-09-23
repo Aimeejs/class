@@ -1,28 +1,28 @@
 {
-	"name": "aimee-class",
-	"description": "Aimee的基类模块，用于创建类",
-	"main": "class.js",
-	"version": "1.0.0",
-	"scripts": {
-		"test": "uz -v"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/gavinning/aimee-class.git"
-	},
-	"keywords": [
-		"aimee-class",
-		"aimee",
-		"uz"
-	],
-	"author": "gavinning",
-	"license": "GPL-3.0",
-	"bugs": {
-		"url": "https://github.com/gavinning/aimee-class/issues"
-	},
-	"homepage": "https://github.com/gavinning/aimee-class",
-	"dependencies": {
-		"aimee-is": "*",
-		"aimee-extend": "*"
-	}
+    "name": "aimee-class",
+    "description": "Aimee的基类模块，用于创建类",
+    "main": "class.js",
+    "version": "1.0.1",
+    "scripts": {
+        "test": "uz -v"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gavinning/aimee-class.git"
+    },
+    "keywords": [
+        "aimee-class",
+        "aimee",
+        "uz"
+    ],
+    "author": "gavinning",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/gavinning/aimee-class/issues"
+    },
+    "homepage": "https://github.com/gavinning/aimee-class",
+    "dependencies": {
+        "aimee-is": "*",
+        "aimee-extend": "*"
+    }
 }
