@@ -2,7 +2,7 @@
     "name": "aimee-class",
     "description": "Aimee的基类模块，用于创建类",
     "main": "class.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "scripts": {
         "test": "uz -v"
     },

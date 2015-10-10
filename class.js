@@ -21,15 +21,21 @@ Class = function(){
  * @return {[Function]}        [返回子类]
  */
 create = function(Fn, obj){
-    var Aimee = function(){};
+    var Aimee = function(){
+        this.init.apply(this, arguments);
+    }
 
     Aimee.fn = Aimee.prototype;
     Aimee.constructor = Class;
     Aimee.create = create;
     Aimee.extend = Aimee.fn.extend = extend;
+    Aimee.include = function(sup){
+        this.fn.extend(sup)
+    }
+    Aimee.fn.init = function(){};
     Aimee.aimee = {
         class: true
-    };
+    }
 
     // 继承父级原型链
     Aimee.fn.extend(this.prototype);
@@ -38,12 +44,12 @@ create = function(Fn, obj){
     if(is.plainObject(Fn)){
         obj = Fn;
         Fn = null;
-    };
+    }
 
     // 继承指定类的原型链
     if(Fn){
         Aimee.fn.extend(Fn.prototype);
-    };
+    }
 
     // 扩展子类
     Aimee.fn.extend(obj || {});
