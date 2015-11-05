@@ -1,16 +1,14 @@
-# Aimee-class
+# class
 
-Aimee-class Aimee的基类模块，用于创建类，依赖aimee-extend, aimee-is  
-Aimee-class是基于UZ构建工具定制化的模块所以最好配合UZ使用  
-Aimee-class是一个类CMD规范的模块，包装上define部分就可以配合seajs使用了
+class Aimee的基类模块，用于创建类，依赖is, extend 
 
-[Aimee-is](https://github.com/gavinning/aimee-is)  
-[Aimee-extend](https://github.com/gavinning/aimee-extend)
+[is](https://github.com/Aimeejs/is)  
+[extend](https://github.com/Aimeejs/extend)
 
 
 ##Install  
 ```
-npm install aimee-class --save
+aimee i class
 ```
 
 ##API

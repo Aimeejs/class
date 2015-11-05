@@ -1,16 +1,16 @@
 /**
- * Aimee-class
+ * Class for Aimeejs
  * Author by gavinning
- * Homepage https://github.com/gavinning/aimee-class
+ * Homepage https://github.com/Aimeejs/class
  */
 
 var is, extend, Class, create;
 
-is = require('aimee-is');
-extend = require('aimee-extend');
+is = require('is');
+extend = require('extend');
 
 Class = function(){
-    this.name = 'aimee-class';
+    this.name = 'class';
     this.version = '1.0.0';
 }
 
@@ -22,17 +22,17 @@ Class = function(){
  */
 create = function(Fn, obj){
     var Aimee = function(){
-        this.init.apply(this, arguments);
+        this._init.apply(this, arguments);
     }
 
     Aimee.fn = Aimee.prototype;
     Aimee.constructor = Class;
-    Aimee.create = create;
+    Aimee.create = Aimee.fn.create = create;
     Aimee.extend = Aimee.fn.extend = extend;
     Aimee.include = function(sup){
         this.fn.extend(sup)
     }
-    Aimee.fn.init = function(){};
+    Aimee.fn._init = function(){};
     Aimee.aimee = {
         class: true
     }
@@ -58,4 +58,5 @@ create = function(Fn, obj){
 }
 
 Class.create = create;
+Class.extend = extend;
 module.exports = Class;
