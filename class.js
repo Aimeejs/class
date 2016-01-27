@@ -6,12 +6,20 @@
 
 var is, extend, Class, create;
 
-is = require('is');
-extend = require('extend');
+// For aimeejs
+try{
+    is = require('is');
+    extend = require('extend');
+}
+// For nodejs
+catch(e){
+    is = require('aimee-is');
+    extend = require('aimee-extend');
+}
 
 Class = function(){
     this.name = 'class';
-    this.version = '1.0.0';
+    this.version = '1.1.0';
 }
 
 /**
@@ -22,17 +30,17 @@ Class = function(){
  */
 create = function(Fn, obj){
     var Aimee = function(){
-        this._init.apply(this, arguments);
+        this.__init.apply(this, arguments);
     }
 
     Aimee.fn = Aimee.prototype;
     Aimee.constructor = Class;
-    Aimee.create = Aimee.fn.create = create;
+    Aimee.create = create;
     Aimee.extend = Aimee.fn.extend = extend;
     Aimee.include = function(sup){
         this.fn.extend(sup)
     }
-    Aimee.fn._init = function(){};
+    Aimee.fn.__init = function(){};
     Aimee.aimee = {
         class: true
     }
