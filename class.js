@@ -4,7 +4,7 @@
  * Homepage https://github.com/Aimeejs/class
  */
 
-var is, extend, Class, create;
+var is, extend, Class, create, instance;
 
 // For aimeejs
 try{
@@ -19,7 +19,7 @@ catch(e){
 
 Class = function(){
     this.name = 'class';
-    this.version = '1.1.0';
+    this.version = '1.2.0';
 }
 
 /**
@@ -29,14 +29,19 @@ Class = function(){
  * @return {[Function]}        [返回子类]
  */
 create = function(Fn, obj){
-    var Aimee = function(){
+    function Aimee(){
         this.__init.apply(this, arguments);
     }
-
+    // 别名
     Aimee.fn = Aimee.prototype;
     Aimee.constructor = Class;
+    // 创建子类
     Aimee.create = create;
+    // 创建实例
+    Aimee.instance = instance;
+    // 扩展类自身
     Aimee.extend = Aimee.fn.extend = extend;
+    // 扩展类的原型链
     Aimee.include = function(sup){
         this.fn.extend(sup)
     }
@@ -44,25 +49,32 @@ create = function(Fn, obj){
     Aimee.aimee = {
         class: true
     }
-
     // 继承父级原型链
-    Aimee.fn.extend(this.prototype);
-
+    Aimee.include(this.prototype);
     // 检查是否存在需要继承的类
     if(is.plainObject(Fn)){
         obj = Fn;
         Fn = null;
     }
-
     // 继承指定类的原型链
     if(Fn){
-        Aimee.fn.extend(Fn.prototype);
+        Aimee.include(Fn.prototype);
     }
-
     // 扩展子类
-    Aimee.fn.extend(obj || {});
+    Aimee.include(obj || {});
 
     return Aimee;
+}
+
+/**
+ * 创建实例
+ * @param   {any}     obj 用于初始化
+ * @return  {object}      当前类的实例
+ * @example this.instance() // => {}
+ */
+instance = function(obj){
+    return obj ?
+        new this(obj): new this;
 }
 
 Class.create = create;
