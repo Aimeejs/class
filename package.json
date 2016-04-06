@@ -1,6 +1,6 @@
 {
   "name": "aimee-class",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "create class",
   "main": "class.js",
   "scripts": {

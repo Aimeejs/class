@@ -6,15 +6,15 @@
 
 var is, extend, Class, create, instance;
 
-// For aimeejs
-try{
-    is = require('is');
-    extend = require('extend');
-}
 // For nodejs
-catch(e){
+try{
     is = require('aimee-is');
     extend = require('aimee-extend');
+}
+// For aimeejs
+catch(e){
+    is = require('is');
+    extend = require('extend');
 }
 
 Class = function(){
