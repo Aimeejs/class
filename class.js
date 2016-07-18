@@ -4,29 +4,30 @@
  * Homepage https://github.com/Aimeejs/class
  */
 
+var env = require('lib/is');
 var is, extend, Class, create, instance;
 
 // For nodejs
-try{
+if(env.node()){
     is = require('aimee-is');
     extend = require('aimee-extend');
 }
 // For aimeejs
-catch(e){
+if(env.browser()){
     is = require('is');
     extend = require('extend');
 }
 
 Class = function(){
     this.name = 'class';
-    this.version = '1.2.0';
+    this.version = '1.2.2';
 }
 
 /**
  * 以Parent为源创建子类
- * @param  {[Function]} parent [要继承的类]
- * @param  {[object]}   obj    [类的扩展]
- * @return {[Function]}        [返回子类]
+ * @param  {Function} parent 要继承的类
+ * @param  {Object}   obj    类的扩展
+ * @return {Function}        返回子类
  */
 create = function(Fn, obj){
     function Aimee(){
@@ -68,7 +69,7 @@ create = function(Fn, obj){
 
 /**
  * 创建实例
- * @param   {any}     obj 用于初始化
+ * @param   {Any}     obj 用于初始化
  * @return  {object}      当前类的实例
  * @example this.instance() // => {}
  */
