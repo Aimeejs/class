@@ -1,4 +1,4 @@
-# class
+# Class
 基类，用于方便创建类及子类
 
 
@@ -7,7 +7,7 @@
 aimee i class --save
 ```
 ```js
-var Class = require('class')
+import Class form 'class';
 ```
 
 ## For nodejs  
@@ -18,34 +18,14 @@ npm i aimee-class --save
 var Class = require('aimee-class')
 ```
 
-
-## Example 1
+### Inherit
 ```js
-// 创建子类
-var Persion = Class.create();
+instances.is = require('is');
+instances.extend = require('extend');
 ```
 
-## Example 2
-```js
-// 扩展类自身
-Person.extend({foo: 'bar'})
-
-// 扩展类原型链
-Person.include({foo: 'bar'})
-// Or
-// 扩展类原型链
-Person.fn.extend({foo: 'bar'})
 ```
-
-## Example 3
-``Person.fn.__init``可以接收到someObj参数
-```js
-// 创建实例
-var person = new Person;
-// Or
-var person = new Person(someObj);
-// Or
-var person = Person.instance();
-// Or
-var person = Person.instance(someObj);
+由于ES6的到来，class@2.0版本之后仅支持aimeejs平台，作为aimee框架的基类存在。
+nodejs版不再更新，nodejs请用es6原生class。
+nodejs-v0.12及更早期版本可以使用aimee-class@1.2.2
 ```
